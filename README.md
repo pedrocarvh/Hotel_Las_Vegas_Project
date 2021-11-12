@@ -1,2 +1,4 @@
-# Hotel_Las_Vegas_Project
- Ativdade de POO
+#            HOTEL LAS VEGAS
+
+Atividade de Programção Orientada a Objetos
+    Sistema de Gerenciamento de Reservas
