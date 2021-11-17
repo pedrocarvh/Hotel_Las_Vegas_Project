@@ -11,8 +11,6 @@ public class Hospede extends Pessoa {
         this.guestCode = guestCode;
     }
 
-
-
     public int getGuestCode() {
         return guestCode;
     }
@@ -21,5 +19,4 @@ public class Hospede extends Pessoa {
         this.guestCode = guestCode;
     }
 
-    //cadastrarHospede,consultarHospede, atualizarCadastro
 }
