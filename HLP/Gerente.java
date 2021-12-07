@@ -1,30 +1,34 @@
 package lasvegas;
 
-import java.util.Scanner;
-
 public class Gerente extends Pessoa{
 
     private int registration;
     private double salario;
     private Hotel hotel;
 
-    public Gerente(String name, String cpf, String rg, int registration, double salario, Hotel hotel){
+    public Gerente(String nome, String cpf, String rg, int registration, double salario, Hotel hotel){
         this.hotel = hotel;
-        this.name = name;
+        this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.registration = registration;
         this.salario = salario;
     }
 
+    public int getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(int registration) {
+        this.registration = registration;
+    }
+
     public double getSalario() {
         return salario;
     }
-
     public void setSalario(double salario) {
         this.salario = salario;
     }
-
     public void contrataFuncionario(Funcionario funcionario){
         hotel.addFuncionario(funcionario);
         funcionario.setAtivo(true);
@@ -33,8 +37,10 @@ public class Gerente extends Pessoa{
     public void aumentaSalario(Funcionario funcionario, int porcentatem){
         funcionario.setSalario(funcionario.getSalario()+ funcionario.getSalario() * (porcentatem/100.0));
     }
+
     public void demiteFuncionario(Funcionario funcionario){
         hotel.removeFuncionario(funcionario);
         funcionario.setAtivo(false);
     }
 }
+

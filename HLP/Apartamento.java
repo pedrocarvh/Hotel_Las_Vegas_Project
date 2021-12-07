@@ -2,31 +2,31 @@ package lasvegas;
 
 public class Apartamento {
 
-    protected int numApartment;
-    protected String apartmentType;
-    protected boolean disponibilidade;
-    private double price;
+    private int numApartamento;
+    private String tipoApartamento;
+    private boolean disponibilidade;
+    private double preco;
 
-    public Apartamento(int numApartment, String apartmentType, boolean disponibilidade){
-        this.numApartment = numApartment;
-        this.apartmentType = apartmentType;
+    public Apartamento(int numApartamento, String tipoApartamento, boolean disponibilidade){
+        this.numApartamento = numApartamento;
+        this.tipoApartamento = tipoApartamento;
         this.disponibilidade = disponibilidade;
     }
 
-    public int getNumApartment() {
-        return numApartment;
+    public int getNumApartamento(){
+        return numApartamento;
     }
 
-    public void setNumApartment(int numApartment) {
-        this.numApartment = numApartment;
+    public void setNumApartamento(int numApartamento) {
+        this.numApartamento = numApartamento;
     }
 
-    public String getapartmentType() {
-        return apartmentType;
+    public String getTipoApartamento() {
+        return tipoApartamento;
     }
 
-    public void setapartmentType(String apartmentType) {
-        this.apartmentType = apartmentType;
+    public void setTipoApartamento(String tipoApartamento) {
+        this.tipoApartamento = tipoApartamento;
     }
 
     public boolean isDisponibilidade() {
@@ -37,18 +37,18 @@ public class Apartamento {
         this.disponibilidade = disponibilidade;
     }
 
-    public double getPrice() {
-        switch (this.apartmentType){
+    public double getPreco() {
+        switch (this.tipoApartamento){
             case "BASIC":
-                this.price = 100.00;
+                this.preco = 100.00;
                 break;
             case "PREMIUM":
-                this.price = 300.00;
+                this.preco = 300.00;
                 break;
             case "DELUXE":
-                this.price = 600.00;
+                this.preco = 600.00;
                 break;
         }
-        return price;
+        return  preco;
     }
 }

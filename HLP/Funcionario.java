@@ -2,35 +2,52 @@ package lasvegas;
 
 public class Funcionario extends Pessoa{
 
-    protected int registration;
-    private String address;
-    protected String office;
-    protected String admissionDate;
+    private int idFuncionario;
+    private String atividade;
+    private String dataAdmissao;
     private double salario;
     private Hotel hotel;
     public boolean ativo;
 
-    public Funcionario(String name,String rg, String cpf,int registration,double salario,String address,String office,
-                       String admissionDate,Hotel hotel,boolean ativo){
-        super();
-        this.name = name;
-        this.hotel = hotel;
-        this.cpf = cpf;
+    public Funcionario(String nome, String rg,String cpf, int idFuncionario, double salario, String endereco,
+                       String atividade,String dataAdmissao, Hotel hotel,boolean ativo){
+
+        this.nome = nome;
         this.rg = rg;
-        this.registration = registration;
+        this.cpf = cpf;
+        this.idFuncionario = idFuncionario;
         this.salario = salario;
-        this.address = address;
-        this.office = office;
-        this.admissionDate = admissionDate;
+        this.endereco = endereco;
+        this.atividade = atividade;
+        this.dataAdmissao = dataAdmissao;
+        this.hotel = hotel;
         this.ativo = ativo;
     }
-
-    public int getRegistration() {
-        return registration;
+    public Funcionario(){
     }
 
-    public void setRegistration(int registration) {
-        this.registration = registration;
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setidFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+
+    public String getAtividade() {
+        return atividade;
+    }
+
+    public void setAtividade(String atividade) {
+        this.atividade = atividade;
+    }
+
+    public String getDataAdmissao() {
+        return dataAdmissao;
+    }
+
+    public void setDataAdmissao(String dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
     }
 
     public double getSalario() {
@@ -41,35 +58,7 @@ public class Funcionario extends Pessoa{
         this.salario = salario;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getOffice() {
-        return office;
-    }
-
-    public void setOffice(String office) {
-        this.office = office;
-    }
-
-    public String getAdmissionDate() {
-        return admissionDate;
-    }
-
-    public void setAdmissionDate(String admissionDate) {
-        this.admissionDate = admissionDate;
-    }
-
-    public void cadastrarHospede(Hospede hospede){
-        hotel.addHospede(hospede);
-    }
-
-    public boolean isAtivo(boolean b) {
+    public boolean isAtivo(boolean ativo) {
         return ativo;
     }
 
@@ -77,11 +66,15 @@ public class Funcionario extends Pessoa{
         this.ativo = ativo;
     }
 
+    public void cadastrarHospede(Hospede hospede){
+        hotel.addHospede(hospede);
+    }
+
     public void criarReserva(Reserva reserva){
         if(isAtivo(ativo)) {
             if (reserva.getApartamento().isDisponibilidade()) {
                 hotel.addReserva(reserva);
-                reserva.setCode(hotel.geraCodReserva());
+                reserva.setCodigo(hotel.geraCodReserva());
                 reserva.getApartamento().setDisponibilidade(false);
             }else {
                 System.out.println("Quarto não disponivel!");
@@ -94,10 +87,10 @@ public class Funcionario extends Pessoa{
 
     public void consultaHospede(Hospede hospede){
         if(isAtivo(ativo)) {
-            System.out.println("Nome:       " + hospede.getName());
+            System.out.println("Nome:       " + hospede.getNome());
             System.out.println("CPF:        " + hospede.getCpf());
             System.out.println("RG:         " + hospede.getRg());
-            System.out.println("Guest Code: " + hospede.getGuestCode());
+            System.out.println("Guest Code: " + hospede.getCodCliente());
         }
         else{
             System.out.println("\nERROR 2 - Funcionario não cadastrado!");
@@ -110,10 +103,11 @@ public class Funcionario extends Pessoa{
             System.out.println("\n\tQUARTOS DISPONIVEIS: \n");
             for( int i = 0; i < hotel.getApartamentos().size(); i++){
                 if(hotel.getApartamentos().get(i).isDisponibilidade()) {
-                    System.out.println("Quarto num: " + hotel.getApartamentos().get(i).getNumApartment()+ " Tipo: "
-                        + hotel.getApartamentos().get(i).getapartmentType());
+                    System.out.println("Quarto Number - " + hotel.getApartamentos().get(i).getNumApartamento()+ " Tipo: "
+                            + hotel.getApartamentos().get(i).getTipoApartamento());
                 }
-            }}
+            }
+        }
         else{
             System.out.println("\nERROR 3 - Funcionario não cadastrado!");
             System.out.println("Não foi possivel verificar a disponibilidade");

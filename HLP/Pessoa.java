@@ -2,17 +2,18 @@ package lasvegas;
 
 public abstract class Pessoa {
 
-    protected String name;
+    protected String nome;
     protected String cpf;
     protected String rg;
-    protected String birthdate;
+    protected String endereco;
+    protected String dataDeNascimento;
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
@@ -31,11 +32,19 @@ public abstract class Pessoa {
         this.rg = rg;
     }
 
-    public String getBirthdate() {
-        return birthdate;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getDataDeNascimento() {
+        return dataDeNascimento;
+    }
+
+    public void setDataDeNascimento(String dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
     }
 }

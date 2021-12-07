@@ -2,21 +2,21 @@ package lasvegas;
 
 public class Hospede extends Pessoa {
 
-    protected int guestCode;
+    protected int codCliente;
 
-    public Hospede(String name, String cpf, String rg, int guestCode){
-        this.name = name;
+    public Hospede(String nome, String cpf, String rg, int codCliente){
+        this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
-        this.guestCode = guestCode;
+        this.codCliente = codCliente;
     }
 
-    public int getGuestCode() {
-        return guestCode;
+    public int getCodCliente() {
+        return codCliente;
     }
 
-    public void setGuestCode(int guestCode) {
-        this.guestCode = guestCode;
+    public void setCodCliente(int codCliente) {
+        this.codCliente = codCliente;
     }
-
 }
+

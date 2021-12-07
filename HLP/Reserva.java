@@ -1,6 +1,5 @@
 package lasvegas;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,50 +11,50 @@ public class Reserva {
 
     private Hospede hospede;
     private Funcionario funcionario;
-    private boolean reserveStatus;
-    private String arrivalDate;
-    private String exitDate;
+    private boolean statusReserva;
+    private String dataEntrada;
+    private String dataSaida;
     public Hotel hotel;
     private String tipoApartamento;
-    private int code;
+    private int codigo;
     private Apartamento apartamento;
     private double valorReserva;
 
 
-    public Reserva(Hospede hospede,Apartamento apartamento, String arrivalDate){
+    public Reserva(Hospede hospede,Apartamento apartamento, String dataEntrada){
         this.apartamento = apartamento;
         this.hospede = hospede;
-        this.arrivalDate = arrivalDate;
+        this.dataEntrada = dataEntrada;
     }
-    public Reserva(Hospede hospede,Apartamento apartamento, String arrivalDate,String exitDate){
+    public Reserva(Hospede hospede,Apartamento apartamento, String dataEntrada,String dataSaida){
         this.apartamento = apartamento;
         this.hospede = hospede;
-        this.arrivalDate = arrivalDate;
-        this.exitDate = exitDate;
+        this.dataEntrada = dataEntrada;
+        this.dataSaida = dataSaida;
     }
 
-    public boolean isReserveStatus() {
-        return reserveStatus;
+    public boolean isStatusReserva() {
+        return statusReserva;
     }
 
-    public void setReserveStatus(boolean reserveStatus) {
-        this.reserveStatus = reserveStatus;
+    public void setStatusReserva(boolean statusReserva) {
+        this.statusReserva = statusReserva;
     }
 
-    public String getArrivalDate() {
-        return arrivalDate;
+    public String getDataEntrada() {
+        return dataEntrada;
     }
 
-    public void setArrivalDate(String arrivalDate) {
-        this.arrivalDate = arrivalDate;
+    public void setDataEntrada(String dataEntrada) {
+        this.dataEntrada = this.dataEntrada;
     }
 
-    public String getExitDate() {
-        return exitDate;
+    public String getDataSaida() {
+        return dataSaida;
     }
 
-    public void setExitDate(String exitDate) {
-        this.exitDate = exitDate;
+    public void setDataSaida(String dataSaida) {
+        this.dataSaida = dataSaida;
     }
 
     public String getTipoApartamento() {
@@ -66,12 +65,12 @@ public class Reserva {
         this.tipoApartamento = tipoApartamento;
     }
 
-    public int getCode() {
-        return code;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public Hospede getHospede() {
@@ -91,7 +90,7 @@ public class Reserva {
     }
 
     public double getValorReserva() {
-        return apartamento.getPrice();
+        return apartamento.getPreco();
     }
 
     public void reserveDate(){
@@ -103,15 +102,16 @@ public class Reserva {
 
     public long diferencaDatas() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date dataUm = sdf.parse(this.arrivalDate);
-        Date dataDois = sdf.parse((this.exitDate));
+        Date dataUm = sdf.parse(this.dataEntrada);
+        Date dataDois = sdf.parse((this.dataSaida));
         long diffEmMil = Math.abs(dataDois.getTime()- dataUm.getTime());
         long diff = TimeUnit.DAYS.convert(diffEmMil,TimeUnit.MILLISECONDS);
         return diff;
     }
     public double cobrarReserva() throws ParseException {
         double cobranca;
-        cobranca = (this.diferencaDatas()+1)*this.getApartamento().getPrice();
+        cobranca = (this.diferencaDatas()+1)*this.getApartamento().getPreco();
         return cobranca;
     }
 }
+

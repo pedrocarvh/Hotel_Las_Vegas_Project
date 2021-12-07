@@ -1,45 +1,45 @@
 package lasvegas;
 
-public class CadastroHospede{
+public class CadastroHospede {
 
-    protected Hospede hospede;
-    protected int numApartment;;
-    protected float housingValue;
-    protected int numPeoples;
+    private Hospede hospede;
+    private int numApartamento;
+    private float valorHospedagem;
+    private int numeroDePessoas;
     private Reserva reserva;
 
-    public CadastroHospede(Reserva reserva,int numApartment,float housingValue,int numPeoples){
+    public CadastroHospede(Reserva reserva,int numApartamento, float valorHospedagem, int numeroDePessoas){
         this.reserva = reserva;
-        this.numApartment = numApartment;
-        this.housingValue = housingValue;
-        this.numPeoples = numPeoples;
+        this.numApartamento = numApartamento;
+        this.valorHospedagem = valorHospedagem;
+        this.numeroDePessoas = numeroDePessoas;
     }
 
     public Reserva getReserva() {
         return reserva;
     }
 
-    public int getNumApartment() {
-        return numApartment;
+    public int getNumApartamento() {
+        return numApartamento;
     }
 
-    public void setNumApartment(int numApartment) {
-        this.numApartment = numApartment;
+    public void setNumApartamento(int numApartamento) {
+        this.numApartamento = numApartamento;
     }
 
-    public float getHousingValue() {
-        return housingValue;
+    public float getValorHospedagem() {
+        return valorHospedagem;
     }
 
-    public void setHousingValue(float housingValue) {
-        this.housingValue = housingValue;
+    public void setValorHospedagem(float valorHospedagem) {
+        this.valorHospedagem = valorHospedagem;
     }
 
-    public int getNumPeoples() {
-        return numPeoples;
+    public int getNumeroDePessoas() {
+        return numeroDePessoas;
     }
 
-    public void setNumPeoples(int numPeoples) {
-        this.numPeoples = numPeoples;
+    public void setNumeroDePessoas(int numeroDePessoas) {
+        this.numeroDePessoas = numeroDePessoas;
     }
 }

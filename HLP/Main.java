@@ -1,13 +1,11 @@
 package lasvegas;
 
-import javax.swing.*;
 import java.text.ParseException;
 import java.util.Scanner;
 
-;public class Main {
+public class Main {
 
     public static void main(String[] args) throws ParseException {
-
 
         Hotel lasVegas = new Hotel();
 
@@ -18,6 +16,38 @@ import java.util.Scanner;
         // CRIANDO DADOS PARA UM FUNCIONARIO
         Funcionario ademir = new Funcionario("Ademir ","21900750","92929282333",3132,
                 600.00,"RUA SÃO FRANCISCO","Faz Tudo","13/11",lasVegas,true);
+
+        /* Funcionario pedro = new Funcionario();
+        Scanner id = new Scanner(System.in);
+
+        System.out.println("Nome");
+        pedro.setNome(id.nextLine());
+
+        System.out.println("RG: ");
+        pedro.setRg(id.nextLine());
+
+        System.out.println("CPF: ");
+        pedro.setCpf(id.nextLine());
+
+        System.out.println("REGISTRO: ");
+        pedro.setidFuncionario(id.nextInt());
+
+        System.out.println("SALARIO: ");
+        pedro.setSalario(id.nextDouble());
+
+        //Esvaziando o buffer
+        id.nextLine();
+
+        System.out.println("ENDERECO: ");
+        pedro.setEndereco(id.nextLine ());
+
+        System.out.println("FUNÇÃ0: ");
+        pedro.setAtividade(id.nextLine());
+
+        System.out.println("DATA DE ADMISSÃO ");
+        pedro.setDataAdmissao(id.nextLine());
+
+         */
 
         // CRIANDO QUARTO
         Apartamento basic = new Apartamento(1,"BASIC",true);
@@ -33,6 +63,7 @@ import java.util.Scanner;
 
         // CADASTRANDO O FUNCIONARIO NO SISTEMA
         artur.contrataFuncionario(ademir);
+        //artur.contrataFuncionario(pedro);
 
         // CRIANDO DADOS PARA UM HOSPEDE
         Hospede juninho = new Hospede("Juninho","23929219121","304282845",4328);
@@ -45,14 +76,12 @@ import java.util.Scanner;
         ademir.cadastrarHospede(michel);
 
         // IMPRIMINDO LISTA DOS HOSPEDES E FUNCIONARIOS
-        lasVegas.mostrarHospedes();
         lasVegas.mostrarFuncionarios();
 
         // CRIANDO UMA RESERVA
         Reserva gratis = new Reserva(anderson,premium,"14/11/2021","16/11/2021");
         Reserva dois = new Reserva(juninho,deluxe,"14/11/2021","15/11/2021");
         Reserva tres  = new Reserva(michel,basic,"15/11/2021","17/11/2021");
-
 
         // CADASTRANDO UMA RESERVA NO SISTEMA
         ademir.verificaDisponibilidade();
@@ -65,12 +94,8 @@ import java.util.Scanner;
         lasVegas.mostrarReserva(gratis);
         lasVegas.mostrarReserva(dois);
 
-
         artur.demiteFuncionario(ademir);
-        ademir.criarReserva(tres);
 
-        ademir.consultaHospede(anderson);
-        ademir.verificaDisponibilidade();
 
     }
 }
