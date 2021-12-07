@@ -1,7 +1,6 @@
 package lasvegas;
 
 import java.text.ParseException;
-import java.util.Scanner;
 
 public class Main {
 
@@ -10,11 +9,10 @@ public class Main {
         Hotel lasVegas = new Hotel();
 
         // CRIANDO DADOS PARA UM GERENTE
-        Gerente artur = new Gerente("Artur","38281243832","383729",1204,
-                800.00,lasVegas);
+        Gerente artur = new Gerente("Artur","38281243832","383729", 800.00,lasVegas);
 
         // CRIANDO DADOS PARA UM FUNCIONARIO
-        Funcionario ademir = new Funcionario("Ademir ","21900750","92929282333",3132,
+        Recepcionista ademir = new Recepcionista("Ademir ","21900750","92929282333",
                 600.00,"RUA SÃO FRANCISCO","Faz Tudo","13/11",lasVegas,true);
 
         /* Funcionario pedro = new Funcionario();
@@ -66,9 +64,9 @@ public class Main {
         //artur.contrataFuncionario(pedro);
 
         // CRIANDO DADOS PARA UM HOSPEDE
-        Hospede juninho = new Hospede("Juninho","23929219121","304282845",4328);
-        Hospede anderson = new Hospede("Anderson","382821332","32828211",9393);
-        Hospede michel = new Hospede("Michel","3222821332","313828211",2421);
+        Hospede juninho = new Hospede("Juninho","23929219121","304282845");
+        Hospede anderson = new Hospede("Anderson","382821332","32828211");
+        Hospede michel = new Hospede("Michel","3222821332","313828211");
 
         // CADASTRANDO O CLIENTE NO SISTEMA
         ademir.cadastrarHospede(juninho);

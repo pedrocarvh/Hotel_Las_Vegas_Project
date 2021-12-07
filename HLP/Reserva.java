@@ -10,13 +10,12 @@ import java.util.concurrent.TimeUnit;
 public class Reserva {
 
     private Hospede hospede;
-    private Funcionario funcionario;
     private boolean statusReserva;
     private String dataEntrada;
     private String dataSaida;
     public Hotel hotel;
     private String tipoApartamento;
-    private int codigo;
+    private String codigo;
     private Apartamento apartamento;
     private double valorReserva;
 
@@ -25,12 +24,14 @@ public class Reserva {
         this.apartamento = apartamento;
         this.hospede = hospede;
         this.dataEntrada = dataEntrada;
+        this.codigo = this.geraCodReserva();
     }
     public Reserva(Hospede hospede,Apartamento apartamento, String dataEntrada,String dataSaida){
         this.apartamento = apartamento;
         this.hospede = hospede;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
+        this.codigo = this.geraCodReserva();
     }
 
     public boolean isStatusReserva() {
@@ -65,12 +66,8 @@ public class Reserva {
         this.tipoApartamento = tipoApartamento;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public Hospede getHospede() {
@@ -112,6 +109,12 @@ public class Reserva {
         double cobranca;
         cobranca = (this.diferencaDatas()+1)*this.getApartamento().getPreco();
         return cobranca;
+    }
+
+    public String geraCodReserva(){
+
+        int randomNum = 1000+ (int)(Math.random() * 9999);
+        return Integer.toString(randomNum);
     }
 }
 

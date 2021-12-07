@@ -1,34 +1,17 @@
 package lasvegas;
 
-public class Gerente extends Pessoa{
+public class Gerente extends Funcionario {
 
-    private int registration;
-    private double salario;
-    private Hotel hotel;
+    public Gerente(String nome, String cpf, String rg, double salario, Hotel hotel){
 
-    public Gerente(String nome, String cpf, String rg, int registration, double salario, Hotel hotel){
         this.hotel = hotel;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
-        this.registration = registration;
+        this.idFuncionario = this.geraCodReserva();
         this.salario = salario;
     }
 
-    public int getRegistration() {
-        return registration;
-    }
-
-    public void setRegistration(int registration) {
-        this.registration = registration;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
     public void contrataFuncionario(Funcionario funcionario){
         hotel.addFuncionario(funcionario);
         funcionario.setAtivo(true);
@@ -42,5 +25,11 @@ public class Gerente extends Pessoa{
         hotel.removeFuncionario(funcionario);
         funcionario.setAtivo(false);
     }
-}
 
+    @Override
+    public String geraCodReserva() {
+
+        int randomNum = 1000+ (int)(Math.random() * 9999) ;
+        return Integer.toString(randomNum)+"-0";
+    }
+}

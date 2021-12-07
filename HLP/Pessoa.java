@@ -47,4 +47,7 @@ public abstract class Pessoa {
     public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
+
+    public abstract String geraCodReserva();
+
 }

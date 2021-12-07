@@ -33,11 +33,11 @@ public class Hotel {
     }
 
     public void mostrarFuncionarios(){
-        System.out.println("\n Gerentes Hotel LasVegas:  "+ gerente.getNome());
+        System.out.println("\n Gerentes Hotel LasVegas:  "+ gerente.getNome() + " - Id: " + gerente.idFuncionario);
         if(this.funcionarios.size()>0){
             System.out.println("\n [FUNCIONARIOS] ");
             for(Funcionario funcionarios: this.funcionarios){
-                System.out.println("\t "+ funcionarios.getNome());
+                System.out.println("\t "+ funcionarios.getNome() + " - Id: " + funcionarios.idFuncionario);
             }
         }
     }
@@ -51,11 +51,6 @@ public class Hotel {
         reservas.add(reserva);
     }
 
-    public int geraCodReserva(){
-
-        int randomNum = 1000+ (int)(Math.random() * 9999) ;
-        return randomNum;
-    }
 
     public void mostrarReserva(Reserva reserva) throws ParseException {
 
@@ -82,7 +77,7 @@ public class Hotel {
     }
 
     public void aumentarSalario(Gerente gerente, int porcentagem){
-        gerente.setSalario(gerente.getSalario()+gerente.getSalario()*porcentagem/100);
+        gerente.setSalario(gerente.getSalario()+ gerente.getSalario()*porcentagem/100);
     }
 
     public void removeFuncionario(Funcionario funcionario){

@@ -4,11 +4,12 @@ public class Hospede extends Pessoa {
 
     protected int codCliente;
 
-    public Hospede(String nome, String cpf, String rg, int codCliente){
+    public Hospede(String nome, String cpf, String rg){
+
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
-        this.codCliente = codCliente;
+        this.codCliente = this.getCodCliente();
     }
 
     public int getCodCliente() {
@@ -17,6 +18,13 @@ public class Hospede extends Pessoa {
 
     public void setCodCliente(int codCliente) {
         this.codCliente = codCliente;
+    }
+
+    @Override
+    public String geraCodReserva() {
+
+        int randomNum = 1000+ (int)(Math.random() * 9999) ;
+        return Integer.toString(randomNum)+"-2";
     }
 }
 
