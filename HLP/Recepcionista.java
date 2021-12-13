@@ -2,14 +2,14 @@ package lasvegas;
 
 public class Recepcionista extends Funcionario {
 
-    public Recepcionista(String nome, String rg,String cpf, double salario, String endereco,
+    public Recepcionista(String nome, String rg,String cpf, String endereco,
                        String atividade,String dataAdmissao, Hotel hotel,boolean ativo){
 
         this.nome = nome;
         this.rg = rg;
         this.cpf = cpf;
         this.idFuncionario = this.geraCodReserva();
-        this.salario = salario;
+        this.salario = this.valorSalario();
         this.endereco = endereco;
         this.atividade = atividade;
         this.dataAdmissao = dataAdmissao;
@@ -73,5 +73,9 @@ public class Recepcionista extends Funcionario {
 
         int randomNum = 1000+ (int)(Math.random() * 9999) ;
         return Integer.toString(randomNum)+"-1";
+    }
+
+    public double valorSalario(){
+        return salario*1.5;
     }
 }

@@ -33,17 +33,20 @@ public class Hotel {
     }
 
     public void mostrarFuncionarios(){
-        System.out.println("\n Gerentes Hotel LasVegas:  "+ gerente.getNome() + " - Id: " + gerente.idFuncionario);
+        System.out.println("\n\t !Hotel LasVegas! ");
+        System.out.println(" \n " +"Gerente:"+ gerente.getNome() + "\n Id: " + gerente.idFuncionario +
+                "\n R$: " + gerente.salario);
         if(this.funcionarios.size()>0){
-            System.out.println("\n [FUNCIONARIOS] ");
             for(Funcionario funcionarios: this.funcionarios){
-                System.out.println("\t "+ funcionarios.getNome() + " - Id: " + funcionarios.idFuncionario);
+                System.out.println("\n Recepcionista:" +funcionarios.getNome() + "\n Id: " + funcionarios.idFuncionario +
+                        "\n R$: " + funcionarios.salario);
             }
         }
     }
 
     public void contrataGerente(Gerente gerente){
         this.gerente = gerente;
+        gerente.valorSalario();
     }
 
     public void addReserva(Reserva reserva) {

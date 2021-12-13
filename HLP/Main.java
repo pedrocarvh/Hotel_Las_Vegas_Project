@@ -9,11 +9,11 @@ public class Main {
         Hotel lasVegas = new Hotel();
 
         // CRIANDO DADOS PARA UM GERENTE
-        Gerente artur = new Gerente("Artur","38281243832","383729", 800.00,lasVegas);
+        Gerente artur = new Gerente("Artur","38281243832","383729", lasVegas);
 
         // CRIANDO DADOS PARA UM FUNCIONARIO
         Recepcionista ademir = new Recepcionista("Ademir ","21900750","92929282333",
-                600.00,"RUA SÃO FRANCISCO","Faz Tudo","13/11",lasVegas,true);
+                "RUA SÃO FRANCISCO","Faz Tudo","13/11",lasVegas,true);
 
         /* Funcionario pedro = new Funcionario();
         Scanner id = new Scanner(System.in);

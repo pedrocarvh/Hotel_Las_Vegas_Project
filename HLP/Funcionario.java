@@ -5,7 +5,7 @@ public abstract class Funcionario extends Pessoa {
     protected String idFuncionario;
     protected String atividade;
     protected String dataAdmissao;
-    protected double salario;
+    protected double salario = 1000;
     protected Hotel hotel;
     public boolean ativo;
 
@@ -46,6 +46,10 @@ public abstract class Funcionario extends Pessoa {
     }
 
     public void setAtivo(boolean ativo) {
+    }
+
+    public double valorSalario(){
+        return salario;
     }
 
 }
