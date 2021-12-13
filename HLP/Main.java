@@ -93,6 +93,7 @@ public class Main {
         lasVegas.mostrarReserva(dois);
 
         artur.demiteFuncionario(ademir);
+        System.out.println(anderson.getCodCliente());
 
 
     }

@@ -78,4 +78,9 @@ public class Recepcionista extends Funcionario {
     public double valorSalario(){
         return salario*1.5;
     }
+
+    @Override
+    public String toString() {
+        return null;
+    }
 }

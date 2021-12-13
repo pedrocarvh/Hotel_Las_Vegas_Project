@@ -1,12 +1,16 @@
 package lasvegas;
 
-public abstract class Pessoa {
+import java.io.Serializable;
+
+public abstract class Pessoa implements Serializable {
 
     protected String nome;
     protected String cpf;
     protected String rg;
     protected String endereco;
     protected String dataDeNascimento;
+
+    public abstract String toString();
 
     public String getNome() {
         return nome;

@@ -37,4 +37,9 @@ public class Gerente extends Funcionario {
     public double valorSalario(){
         return salario*2;
     }
+
+    @Override
+    public String toString() {
+        return null;
+    }
 }
