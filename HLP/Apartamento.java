@@ -2,8 +2,8 @@ package lasvegas;
 
 public class Apartamento {
 
-    private int numApartamento;
-    private String tipoApartamento;
+    private final int numApartamento;
+    private final String tipoApartamento;
     private boolean disponibilidade;
     private double preco;
 
@@ -17,16 +17,8 @@ public class Apartamento {
         return numApartamento;
     }
 
-    public void setNumApartamento(int numApartamento) {
-        this.numApartamento = numApartamento;
-    }
-
     public String getTipoApartamento() {
         return tipoApartamento;
-    }
-
-    public void setTipoApartamento(String tipoApartamento) {
-        this.tipoApartamento = tipoApartamento;
     }
 
     public boolean isDisponibilidade() {

@@ -18,20 +18,10 @@ public class Gerente extends Funcionario {
         funcionario.valorSalario();
     }
 
-    public void aumentaSalario(Funcionario funcionario, int porcentatem){
-        funcionario.setSalario(funcionario.getSalario()+ funcionario.getSalario() * (porcentatem/100.0));
-    }
-
-    public void demiteFuncionario(Funcionario funcionario){
-        hotel.removeFuncionario(funcionario);
-        funcionario.setAtivo(false);
-    }
-
-    @Override
-    public String geraCodReserva() {
+    private String geraCodReserva() {
 
         int randomNum = 1000+ (int)(Math.random() * 9999) ;
-        return Integer.toString(randomNum)+"-0";
+        return randomNum +"-0";
     }
 
     public double valorSalario(){

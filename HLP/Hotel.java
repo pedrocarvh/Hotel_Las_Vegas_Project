@@ -1,31 +1,17 @@
 package lasvegas;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class Hotel {
 
-    private String nomeHotel;
-    private ArrayList <Hospede> hospedes = new ArrayList<>();
-    private ArrayList<Funcionario> funcionarios = new ArrayList<>();
+    private final ArrayList <Hospede> hospedes = new ArrayList<>();
+    private final ArrayList<Funcionario> funcionarios = new ArrayList<>();
     private Gerente gerente;
-    private ArrayList <Reserva> reservas = new ArrayList<>();
-    private Reserva reserva;
-    private ArrayList <Apartamento> apartamentos = new ArrayList<>();
+    private final ArrayList <Reserva> reservas = new ArrayList<>();
+    private final ArrayList <Apartamento> apartamentos = new ArrayList<>();
 
     public void addHospede(Hospede hospede){
         this.hospedes.add(hospede);
-    }
-
-    public void mostrarHospedes(){
-
-        if (this.hospedes.size() > 0){
-
-            System.out.println("[CLIENTES CADASTRADOS]");
-            for(Hospede hospedes : this.hospedes){
-                System.out.println("Name: " + hospedes.getNome() + " - code: " + hospedes.codCliente);
-            }
-        }
     }
 
     public void addFuncionario(Funcionario funcionario){
@@ -50,21 +36,17 @@ public class Hotel {
     }
 
     public void addReserva(Reserva reserva) {
-        this.reserva = reserva;
         reservas.add(reserva);
     }
 
 
-    public void mostrarReserva(Reserva reserva) throws ParseException {
+    public void mostrarReserva(Reserva reserva) {
 
-        System.out.println("\n!Reserve Successfully!\n   booking details");
-        System.out.println("-Nome Cliente  ...  " + reserva.getHospede().getNome());
-        System.out.println("-Reserve Type  ...  "+ reserva.getApartamento().getTipoApartamento());
-        reserva.reserveDate();
-        System.out.println("-Codigo Reserva...  " + reserva.getCodigo());
-        System.out.println("-Arrival Date  ...  " + reserva.getDataEntrada());
-        System.out.println("-Exit Date     ...  " + reserva.getDataSaida());
-        System.out.println("-Valor Reserva ...  R$ " + reserva.cobrarReserva());
+        if(reservas.contains(reserva) ) {
+            System.out.println(reserva);
+        }else{
+            System.out.println("Reserva Inexistente");
+        }
     }
 
     public void mostrarReservas(){
@@ -79,10 +61,6 @@ public class Hotel {
         }
     }
 
-    public void aumentarSalario(Gerente gerente, int porcentagem){
-        gerente.setSalario(gerente.getSalario()+ gerente.getSalario()*porcentagem/100);
-    }
-
     public void removeFuncionario(Funcionario funcionario){
         funcionarios.remove(funcionario);
     }
@@ -95,7 +73,4 @@ public class Hotel {
         return apartamentos;
     }
 
-    public void setApartamentos(ArrayList<Apartamento> apartamentos) {
-        this.apartamentos = apartamentos;
-    }
 }

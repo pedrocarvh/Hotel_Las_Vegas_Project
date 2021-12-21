@@ -9,61 +9,20 @@ import java.util.concurrent.TimeUnit;
 
 public class Reserva {
 
-    private Hospede hospede;
+    private final Hospede hospede;
     private boolean statusReserva;
-    private String dataEntrada;
-    private String dataSaida;
-    public Hotel hotel;
-    private String tipoApartamento;
+    private final String dataEntrada;
+    private final String dataSaida;
     private String codigo;
-    private Apartamento apartamento;
-    private double valorReserva;
+    private final Apartamento apartamento;
 
 
-    public Reserva(Hospede hospede,Apartamento apartamento, String dataEntrada){
-        this.apartamento = apartamento;
-        this.hospede = hospede;
-        this.dataEntrada = dataEntrada;
-        this.codigo = this.geraCodReserva();
-    }
     public Reserva(Hospede hospede,Apartamento apartamento, String dataEntrada,String dataSaida){
         this.apartamento = apartamento;
         this.hospede = hospede;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
         this.codigo = this.geraCodReserva();
-    }
-
-    public boolean isStatusReserva() {
-        return statusReserva;
-    }
-
-    public void setStatusReserva(boolean statusReserva) {
-        this.statusReserva = statusReserva;
-    }
-
-    public String getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(String dataEntrada) {
-        this.dataEntrada = this.dataEntrada;
-    }
-
-    public String getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(String dataSaida) {
-        this.dataSaida = dataSaida;
-    }
-
-    public String getTipoApartamento() {
-        return tipoApartamento;
-    }
-
-    public void setTipoApartamento(String tipoApartamento) {
-        this.tipoApartamento = tipoApartamento;
     }
 
     public String getCodigo() {
@@ -74,20 +33,8 @@ public class Reserva {
         return hospede;
     }
 
-    public void setHospede(Hospede hospede) {
-        this.hospede = hospede;
-    }
-
     public Apartamento getApartamento() {
         return apartamento;
-    }
-
-    public void setApartamento(Apartamento apartamento) {
-        this.apartamento = apartamento;
-    }
-
-    public double getValorReserva() {
-        return apartamento.getPreco();
     }
 
     public void reserveDate(){
@@ -102,19 +49,39 @@ public class Reserva {
         Date dataUm = sdf.parse(this.dataEntrada);
         Date dataDois = sdf.parse((this.dataSaida));
         long diffEmMil = Math.abs(dataDois.getTime()- dataUm.getTime());
-        long diff = TimeUnit.DAYS.convert(diffEmMil,TimeUnit.MILLISECONDS);
-        return diff;
-    }
-    public double cobrarReserva() throws ParseException {
-        double cobranca;
-        cobranca = (this.diferencaDatas()+1)*this.getApartamento().getPreco();
-        return cobranca;
+        return TimeUnit.DAYS.convert(diffEmMil,TimeUnit.MILLISECONDS);
     }
 
     public String geraCodReserva(){
+        int id = 1000+ (int)(Math.random() * 9999);
+        switch (this.apartamento.getTipoApartamento()){
+            case "BASIC":
+                codigo = id+"-0";
+                break;
+            case "PREMIUM":
+                codigo = id+"-1";
+                break;
+            case "DELUXE":
+                codigo = id+"-2";
+                break;
+        }
+        return codigo;
+    }
 
-        int randomNum = 1000+ (int)(Math.random() * 9999);
-        return Integer.toString(randomNum);
+    @Override
+    public String toString() {
+        try {
+            return
+                    "\nCliente: " + hospede.getNome() +
+                    "\nData Entrada: " + dataEntrada +
+                    "\nData Saida: " + dataSaida +
+                    "\nTipo Apartamento: " + apartamento.getTipoApartamento() +
+                    "\nID Reserva: " + codigo+
+                    "\nValor Reserva: R$" + diferencaDatas()*apartamento.getPreco();
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "error";
+        }
     }
 }
 

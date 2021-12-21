@@ -2,8 +2,7 @@ package lasvegas;
 
 public class Recepcionista extends Funcionario {
 
-    public Recepcionista(String nome, String rg,String cpf, String endereco,
-                       String atividade,String dataAdmissao, Hotel hotel,boolean ativo){
+    public Recepcionista(String nome, String rg,String cpf, String endereco, Hotel hotel){
 
         this.nome = nome;
         this.rg = rg;
@@ -11,15 +10,7 @@ public class Recepcionista extends Funcionario {
         this.idFuncionario = this.geraCodReserva();
         this.salario = this.valorSalario();
         this.endereco = endereco;
-        this.atividade = atividade;
-        this.dataAdmissao = dataAdmissao;
         this.hotel = hotel;
-        this.ativo = ativo;
-    }
-
-    //Construtor Vazio
-
-    public Recepcionista(){
     }
 
     public void cadastrarHospede(Hospede hospede){
@@ -32,24 +23,11 @@ public class Recepcionista extends Funcionario {
                 hotel.addReserva(reserva);
                 reserva.getApartamento().setDisponibilidade(false);
             }else {
-                System.out.println("Quarto não disponivel!");
+                System.out.println("Quarto Ocupado!");
             }
         }else{
             System.out.println("\nERROR 1 - Funcionario não cadastrado!");
             System.out.println("Não foi possivel realizar a reserva");
-        }
-    }
-
-    public void consultaHospede(Hospede hospede){
-        if(isAtivo(ativo)) {
-            System.out.println("Nome:       " + hospede.getNome());
-            System.out.println("CPF:        " + hospede.getCpf());
-            System.out.println("RG:         " + hospede.getRg());
-            System.out.println("Guest Code: " + hospede.getCodCliente());
-        }
-        else{
-            System.out.println("\nERROR 2 - Funcionario não cadastrado!");
-            System.out.println("Não foi possivel realizar a consulta do hospede");
         }
     }
 
@@ -69,10 +47,10 @@ public class Recepcionista extends Funcionario {
         }
     }
 
-    public String geraCodReserva() {
+    private String geraCodReserva() {
 
         int randomNum = 1000+ (int)(Math.random() * 9999) ;
-        return Integer.toString(randomNum)+"-1";
+        return randomNum +"-1";
     }
 
     public double valorSalario(){
