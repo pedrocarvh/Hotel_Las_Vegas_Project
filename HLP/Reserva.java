@@ -77,7 +77,8 @@ public class Reserva {
                     "\nData Saida: " + dataSaida +
                     "\nTipo Apartamento: " + apartamento.getTipoApartamento() +
                     "\nID Reserva: " + codigo+
-                    "\nValor Reserva: R$" + diferencaDatas()*apartamento.getPreco();
+                    "\nValor Reserva: R$" + diferencaDatas()*apartamento.getPreco() +
+                            "\n\n======= Reserva Concluida =======";
         } catch (ParseException e) {
             e.printStackTrace();
             return "error";

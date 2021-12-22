@@ -45,7 +45,7 @@ public class Hotel {
         if(reservas.contains(reserva) ) {
             System.out.println(reserva);
         }else{
-            System.out.println("Reserva Inexistente");
+            System.out.println("reserva nao finalizada");
         }
     }
 

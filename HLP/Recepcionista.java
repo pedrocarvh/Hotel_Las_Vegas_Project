@@ -22,8 +22,9 @@ public class Recepcionista extends Funcionario {
             if (reserva.getApartamento().isDisponibilidade()) {
                 hotel.addReserva(reserva);
                 reserva.getApartamento().setDisponibilidade(false);
+                System.out.println("\n\n\n======= Criando Reserva =======");
             }else {
-                System.out.println("Quarto Ocupado!");
+                System.out.println("Quarto selecionado nao disponivel");
             }
         }else{
             System.out.println("\nERROR 1 - Funcionario não cadastrado!");
@@ -33,13 +34,15 @@ public class Recepcionista extends Funcionario {
 
     public void verificaDisponibilidade(){
         if(isAtivo(ativo)) {
-            System.out.println("\n\tQUARTOS DISPONIVEIS: \n");
+            System.out.println("\n----------------------------------\n");
+            System.out.println("\tQUARTOS DISPONIVEIS: \n");
             for( int i = 0; i < hotel.getApartamentos().size(); i++){
                 if(hotel.getApartamentos().get(i).isDisponibilidade()) {
                     System.out.println("Quarto Number - " + hotel.getApartamentos().get(i).getNumApartamento()+ " Tipo: "
                             + hotel.getApartamentos().get(i).getTipoApartamento());
                 }
             }
+            System.out.println("\n----------------------------------\n");
         }
         else{
             System.out.println("\nERROR 3 - Funcionario não cadastrado!");
