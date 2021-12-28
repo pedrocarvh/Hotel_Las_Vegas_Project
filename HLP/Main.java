@@ -21,15 +21,15 @@ public class Main {
         Apartamento deluxe = new Apartamento(3,"DELUXE",true);
 
         // CADASTRANDO NO SISTEMA
-        lasVegas.addApartamento(basic);
-        lasVegas.addApartamento(premium);
-        lasVegas.addApartamento(deluxe);
+        lasVegas.adicionarApartamento(basic);
+        lasVegas.adicionarApartamento(premium);
+        lasVegas.adicionarApartamento(deluxe);
 
         // CADASTRANDO O GERENTE NO SISTEMA
-        lasVegas.contrataGerente(artur);
+        lasVegas.contratarGerente(artur);
 
         // CADASTRANDO O FUNCIONARIO NO SISTEMA
-        artur.contrataFuncionario(ademir);
+        artur.contratarFuncionario(ademir);
 
         // CRIANDO DADOS PARA UM HOSPEDE
         Hospede juninho = new Hospede("Juninho","23929219121","304282845");
@@ -81,7 +81,7 @@ public class Main {
 
             switch (opcao){
                 case 1:
-                    ademir.verificaDisponibilidade();
+                    ademir.verificarDisponibilidade();
                     break;
                 case 2:
                     switch (cont){

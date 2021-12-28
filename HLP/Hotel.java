@@ -10,11 +10,11 @@ public class Hotel {
     private final ArrayList <Reserva> reservas = new ArrayList<>();
     private final ArrayList <Apartamento> apartamentos = new ArrayList<>();
 
-    public void addHospede(Hospede hospede){
+    public void adicionarHospede(Hospede hospede){
         this.hospedes.add(hospede);
     }
 
-    public void addFuncionario(Funcionario funcionario){
+    public void adicionarFuncionario(Funcionario funcionario){
         this.funcionarios.add(funcionario);
     }
 
@@ -30,15 +30,14 @@ public class Hotel {
         }
     }
 
-    public void contrataGerente(Gerente gerente){
+    public void contratarGerente(Gerente gerente){
         this.gerente = gerente;
         gerente.valorSalario();
     }
 
-    public void addReserva(Reserva reserva) {
+    public void adicionarReserva(Reserva reserva) {
         reservas.add(reserva);
     }
-
 
     public void mostrarReserva(Reserva reserva) {
 
@@ -53,7 +52,7 @@ public class Hotel {
         System.out.println("\n\nReservas realizadas:");
         for (Reserva valor : reservas) {
             System.out.println(" -------------------");
-            valor.reserveDate();
+            valor.dataReserva();
             System.out.println("Nome Cliente:" +valor.getHospede().getNome());
             System.out.println("Tipo Quarto:" + valor.getApartamento().getTipoApartamento());
             System.out.println("Codigo Reserva: " + valor.getCodigo());
@@ -61,11 +60,11 @@ public class Hotel {
         }
     }
 
-    public void removeFuncionario(Funcionario funcionario){
+    public void removerFuncionario(Funcionario funcionario){
         funcionarios.remove(funcionario);
     }
 
-    public void addApartamento(Apartamento apartamento){
+    public void adicionarApartamento(Apartamento apartamento){
         apartamentos.add(apartamento);
     }
 

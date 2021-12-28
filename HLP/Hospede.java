@@ -2,19 +2,19 @@ package lasvegas;
 
 public class Hospede extends Pessoa {
 
-    protected final String codCliente;
+    protected final String idHospede;
 
     public Hospede(String nome, String cpf, String rg){
 
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
-        this.codCliente = this.geraCodReserva();
+        this.idHospede = this.geraCodReserva();
 
     }
 
-    public String getCodCliente() {
-        return codCliente;
+    public String getIdHospede() {
+        return idHospede;
     }
     
     @Override
@@ -23,7 +23,7 @@ public class Hospede extends Pessoa {
                 "\nNome: "+nome+
                 "\nCPF: "+cpf+
                 "\nRG: "+rg+
-                "\nCOD: "+getCodCliente();
+                "\nCOD: "+ getIdHospede();
     }
 
     private String geraCodReserva() {
@@ -31,7 +31,6 @@ public class Hospede extends Pessoa {
         int randomNum = 1000+ (int)(Math.random() * 9999) ;
         return randomNum +"-2";
     }
-
 
 }
 

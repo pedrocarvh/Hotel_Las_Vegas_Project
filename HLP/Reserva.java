@@ -13,20 +13,19 @@ public class Reserva {
     private boolean statusReserva;
     private final String dataEntrada;
     private final String dataSaida;
-    private String codigo;
+    private String idReserva;
     private final Apartamento apartamento;
-
 
     public Reserva(Hospede hospede,Apartamento apartamento, String dataEntrada,String dataSaida){
         this.apartamento = apartamento;
         this.hospede = hospede;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
-        this.codigo = this.geraCodReserva();
+        this.idReserva = this.geraCodReserva();
     }
 
     public String getCodigo() {
-        return codigo;
+        return idReserva;
     }
 
     public Hospede getHospede() {
@@ -37,14 +36,14 @@ public class Reserva {
         return apartamento;
     }
 
-    public void reserveDate(){
+    public void dataReserva(){
         Calendar c = Calendar.getInstance();
         Date data = c.getTime();
         DateFormat h = DateFormat.getDateInstance(DateFormat.SHORT);
         System.out.println("-Reserve Date  ...  "+ h.format(data));
     }
 
-    public long diferencaDatas() throws ParseException {
+    public long tempoEstadia() throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date dataUm = sdf.parse(this.dataEntrada);
         Date dataDois = sdf.parse((this.dataSaida));
@@ -56,16 +55,16 @@ public class Reserva {
         int id = 1000+ (int)(Math.random() * 9999);
         switch (this.apartamento.getTipoApartamento()){
             case "BASIC":
-                codigo = id+"-0";
+                idReserva = id+"-0";
                 break;
             case "PREMIUM":
-                codigo = id+"-1";
+                idReserva = id+"-1";
                 break;
             case "DELUXE":
-                codigo = id+"-2";
+                idReserva = id+"-2";
                 break;
         }
-        return codigo;
+        return idReserva;
     }
 
     @Override
@@ -76,8 +75,8 @@ public class Reserva {
                     "\nData Entrada: " + dataEntrada +
                     "\nData Saida: " + dataSaida +
                     "\nTipo Apartamento: " + apartamento.getTipoApartamento() +
-                    "\nID Reserva: " + codigo+
-                    "\nValor Reserva: R$" + diferencaDatas()*apartamento.getPreco() +
+                    "\nID Reserva: " + idReserva+
+                    "\nValor Reserva: R$" + tempoEstadia()*apartamento.getPreco() +
                             "\n\n======= Reserva Concluida =======";
         } catch (ParseException e) {
             e.printStackTrace();

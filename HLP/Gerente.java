@@ -12,10 +12,10 @@ public class Gerente extends Funcionario {
         this.salario = this.valorSalario();
     }
 
-    public void contrataFuncionario(Funcionario funcionario){
-        hotel.addFuncionario(funcionario);
-        funcionario.setAtivo(true);
-        funcionario.valorSalario();
+    public void contratarFuncionario(Recepcionista recepcionista){
+        hotel.adicionarFuncionario(recepcionista);
+        recepcionista.setAtivo(true);
+        recepcionista.valorSalario();
     }
 
     private String geraCodReserva() {

@@ -14,13 +14,13 @@ public class Recepcionista extends Funcionario {
     }
 
     public void cadastrarHospede(Hospede hospede){
-        hotel.addHospede(hospede);
+        hotel.adicionarHospede(hospede);
     }
 
     public void criarReserva(Reserva reserva){
         if(isAtivo(ativo)) {
             if (reserva.getApartamento().isDisponibilidade()) {
-                hotel.addReserva(reserva);
+                hotel.adicionarReserva(reserva);
                 reserva.getApartamento().setDisponibilidade(false);
                 System.out.println("\n\n\n======= Criando Reserva =======");
             }else {
@@ -32,7 +32,7 @@ public class Recepcionista extends Funcionario {
         }
     }
 
-    public void verificaDisponibilidade(){
+    public void verificarDisponibilidade(){
         if(isAtivo(ativo)) {
             System.out.println("\n----------------------------------\n");
             System.out.println("\tQUARTOS DISPONIVEIS: \n");
